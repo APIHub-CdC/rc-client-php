@@ -1,4 +1,4 @@
-# Reporte de crédito 
+# rc-client-php
 <p>Esta API entrega el reporte del historial crediticio, el cumplimiento de pago de los compromisos que la persona ha adquirido con entidades financieras, no financieras e instituciones comerciales que dan crédito o participan en actividades afines al crédito.<br/><img src='https://www.circulodecredito.com.mx/assets/img/logocirculo.png' height='37' width='100'/></p><br/>
 
 ## Requisitos
