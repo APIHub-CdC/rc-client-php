@@ -28,8 +28,7 @@ class ReporteDeCrditoApiTest extends \PHPUnit_Framework_TestCase
 
     public function testGetReporte()
     {
-        $x_full_report = false;
-
+    
         $request = new \RcClientPhp\Client\Model\PersonaPeticion();
         $request->setPrimerNombre("XXXX");
         $request->setApellidoPaterno("XXXX");
@@ -52,7 +51,7 @@ class ReporteDeCrditoApiTest extends \PHPUnit_Framework_TestCase
         $request->setDomicilio($dom);
 
         try {
-            $result = $this->apiInstance->getReporte($this->x_api_key, $this->username, $this->password, $request, $x_full_report);
+            $result = $this->apiInstance->getReporte($this->x_api_key, $this->username, $this->password, $request);
             $this->assertTrue($result->getFolioConsulta()!==null);
             echo "testGetReporte finished\n";
             return $result->getFolioConsulta();
@@ -61,74 +60,4 @@ class ReporteDeCrditoApiTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @depends testGetReporte
-     */
-    public function testGetConsultas($folioConsulta)
-    {
-        try {
-            $result = $this->apiInstance->getConsultas($folioConsulta, $this->x_api_key, $this->username, $this->password);
-            $this->assertTrue($result->getConsultas()!==null);
-            echo "testGetConsultas finished\n";
-        } catch (Exception $e) {
-            echo 'Exception when calling ReporteDeCrditoApi->getReporte: ', $e->getMessage(), PHP_EOL;
-        }
-        
-    }
-    
-    /**
-     * @depends testGetReporte
-     */
-    public function testGetCreditos($folioConsulta)
-    {
-        try {
-            $result = $this->apiInstance->getCreditos($folioConsulta, $this->x_api_key, $this->username, $this->password);
-            $this->assertTrue($result->getCreditos()!==null);
-            echo "testGetCreditos finished\n";
-        } catch (Exception $e) {
-            echo 'Exception when calling ReporteDeCrditoApi->getReporte: ', $e->getMessage(), PHP_EOL;
-        }
-    }
-    
-    /**
-     * @depends testGetReporte
-     */
-    public function testGetDomicilios($folioConsulta)
-    {
-        try {
-            $result = $this->apiInstance->getDomicilios($folioConsulta, $this->x_api_key, $this->username, $this->password);
-            $this->assertTrue($result->getDomicilios()!==null);
-            echo "testGetDomicilios finished\n";
-        } catch (Exception $e) {
-            echo 'Exception when calling ReporteDeCrditoApi->getReporte: ', $e->getMessage(), PHP_EOL;
-        }
-    }
-    
-    /**
-     * @depends testGetReporte
-     */
-    public function testGetEmpleos($folioConsulta)
-    {
-        try {
-            $result = $this->apiInstance->getEmpleos($folioConsulta, $this->x_api_key, $this->username, $this->password);
-            $this->assertTrue($result->getEmpleos()!==null);
-            echo "testGetEmpleos finished\n";
-        } catch (Exception $e) {
-            echo 'Exception when calling ReporteDeCrditoApi->getReporte: ', $e->getMessage(), PHP_EOL;
-        }
-    }
-
-    /**
-     * @depends testGetReporte
-     */
-    public function testGetMensajes($folioConsulta)
-    {
-        try {
-            $result = $this->apiInstance->getMensajes($folioConsulta, $this->x_api_key, $this->username, $this->password);
-            $this->assertTrue($result->getMensajes()!==null);
-            echo "testGetMensajes finished\n";
-        } catch (Exception $e) {
-            echo 'Exception when calling ReporteDeCrditoApi->getReporte: ', $e->getMessage(), PHP_EOL;
-        }
-    }
 }
