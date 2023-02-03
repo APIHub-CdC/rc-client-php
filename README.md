@@ -125,7 +125,6 @@ public function setUp()
 public function testGetReporte()
     {
 
-        $x_full_report = false;
 
         $request = new \RcClientPhp\Client\Model\PersonaPeticion();
         $request->setPrimerNombre("XXXX");
@@ -149,7 +148,7 @@ public function testGetReporte()
         $request->setDomicilio($dom);
 
         try {
-            $result = $this->apiInstance->getReporte($this->x_api_key, $this->username, $this->password, $request, $x_full_report);
+            $result = $this->apiInstance->getReporte($this->x_api_key, $this->username, $this->password, $request);
             $this->assertTrue($result->getFolioConsulta()!==null);
             echo "testGetReporte finished\n";
             return $result->getFolioConsulta();
